@@ -6,20 +6,31 @@ import { insertSale, selectSales } from "../models/salesModel";
 export class SalesControllers {
   getSales = async (req: Request, res: Response) => {
     try {
-      const page = parseInt(req.query.page as string) || 1; // Página atual (padrão: 1)
-      const pageSize = parseInt(req.query.pageSize as string) || 10; // Tamanho da página (padrão: 10)
+      const page = parseInt(req.query.page as string) || 1;
+      const pageSize = parseInt(req.query.pageSize as string) || 10;
+      const idBandeiraCartao =
+        parseInt(req.query.idFlagCard as string) || undefined;
+      const idAdquirente =
+        parseInt(req.query.idAdquirente as string) || undefined;
+      const dataVenda = (req.query.dataVenda as string) || undefined;
 
-      // Calcular o offset com base na página e tamanho da página
       const offset = (page - 1) * pageSize;
 
-      const sales = await selectSales(offset, pageSize);
+      const sales = await selectSales({
+        offset,
+        limit: pageSize,
+        dataVenda,
+        idAdquirente,
+        idBandeiraCartao,
+      });
 
       return res.json({
-        data: sales.result,
+        data: sales?.result ?? [],
         pageInfo: {
           currentPage: page,
           pageSize: pageSize,
-          totalItems: Number(sales.count), // Atualize isso para o número total real de itens na tabela
+          totalPages: Math.ceil(Number(sales?.count ?? 0) / pageSize),
+          totalItems: Number(sales?.count ?? 0),
         },
       });
     } catch (error) {
