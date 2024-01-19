@@ -35,7 +35,7 @@ O Projeto foi 100% desenvolvido por Luis Filipe Joaquim de Alencar, um experient
 - **POST /**
 - Insere um novo registro de venda..
 
-- **Corpo da Requisição:**
+- **Exemplo do corpo da Requisição:**
 
 ```bash
 {
