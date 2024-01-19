@@ -1,4 +1,4 @@
-# MKS Challenge - Luis Filipe J Alencar
+# SalesForge - Luis Filipe J Alencar
 
 O SalesForge é um sistema de gerenciamento de vendas construída com Node.js e PostgreSQL. A API permite aos usuários recuperar dados de vendas com opções de paginação e filtros, além de inserir novos registros de vendas.
 
