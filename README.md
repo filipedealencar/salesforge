@@ -11,7 +11,6 @@ O Projeto foi 100% desenvolvido por Luis Filipe Joaquim de Alencar, um experient
 - **PostgreSQL.**
 - **Node.js**
 - **Express**
-- **React Loading Skeleton:**
 
 ## Endpoints
 
