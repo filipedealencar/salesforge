@@ -9,7 +9,7 @@ export class SalesControllers {
       const page = parseInt(req.query.page as string) || 1;
       const pageSize = parseInt(req.query.pageSize as string) || 10;
       const idBandeiraCartao =
-        parseInt(req.query.idFlagCard as string) || undefined;
+        parseInt(req.query.idBandeiraCartao as string) || undefined;
       const idAdquirente =
         parseInt(req.query.idAdquirente as string) || undefined;
       const dataVenda = (req.query.dataVenda as string) || undefined;
