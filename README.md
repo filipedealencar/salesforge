@@ -25,17 +25,37 @@ O Projeto foi 100% desenvolvido por Luis Filipe Joaquim de Alencar, um experient
 - **dataVenda (opcional)**: Data da venda para filtrar (formato: "AAAA-MM-DD").
 
 - **Exemplo:**
-  `bash curl http://localhost:8888?page=1&pageSize=10&idBandeiraCartao=1&idAdquirente=2&dataVenda=2022-01-19  `
+
+```bash
+
+    curl http://localhost:8888?page=1&pageSize=10&idBandeiraCartao=1&idAdquirente=2&dataVenda=2022-01-19
+
+```
 
 - **POST /**
 - Insere um novo registro de venda..
 
 - **Corpo da Requisição:**
 
-`{"valor": 100.50, "numero_cartao": "1234567890123456","id_adquirente": 1, "numero_parcelas": 1, "id_bandeira_cartao": 1, "data_venda":"2022-01-19"}`
+```bash
+{
+  "valor": 100.50,
+  "numero_cartao": "1234567890123456",
+  "id_adquirente": 1,
+  "numero_parcelas": 1,
+  "id_bandeira_cartao": 1,
+  "data_venda": "2022-01-19"
+}
+
+```
 
 - **Exemplo:**
-  `curl -X POST -H "Content-Type: application/json" -d '{"valor": 100.50, "numero_cartao": "1234567890123456", "id_adquirente": 1, "numero_parcelas": 1, "id_bandeira_cartao": 1, "data_venda": "2022-01-19"}' http://localhost:8080`
+
+```bash
+
+ curl -X POST -H "Content-Type: application/json" -d '{"valor": 100.50, "numero_cartao": "1234567890123456", "id_adquirente": 1, "numero_parcelas": 1, "id_bandeira_cartao": 1, "data_venda": "2022-01-19"}' http://localhost:8080
+
+```
 
 ## Banco de Dados
 
@@ -45,19 +65,27 @@ A API utiliza o PostgreSQL como banco de dados. Certifique-se de ter um servidor
 
 1. **Clone o repositório::**
 
-   `bash https://github.com/filipedealencar/salesforge-services.git`
+   ```bash
+    https://github.com/filipedealencar/salesforge-services.git
+   ```
 
 2. **Entre no repositório do projeto**
 
-   `bash cd salesforge-services`
+```bash
+ cd salesforge-services
+```
 
 3. **Instale as dependências:**
 
-   `bash npm install`
+```bash
+ npm install
+```
 
 4. **Inicie a aplicação:**
 
-   `bash npm run dev`
+   ```bash
+    npm run dev
+   ```
 
 Agora você pode acessar o projeto em http://localhost:8080.
 
