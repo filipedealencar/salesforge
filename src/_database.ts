@@ -1,5 +1,6 @@
 import { Pool } from "pg";
 import dotenv from "dotenv";
+import fs from "fs";
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ declare global {
   var connection: Pool;
 }
 
-export const connect = async () => {
+const connect = async () => {
   if (global.connection) return global.connection.connect();
 
   pool = new Pool({
@@ -29,6 +30,18 @@ export const connect = async () => {
   try {
     const client = await pool.connect();
     console.log("Conexão bem-sucedida com o PostgreSQL!");
+
+    const script = fs.readFileSync("schema-db.sql", "utf-8");
+    await client.query(script);
+
+    const result = await client.query(
+      "SELECT to_regclass('public.vendas') AS table_exists"
+    );
+    if (result.rows[0].table_exists) {
+      console.log("Tabela 'vendas' criada com sucesso!");
+    } else {
+      console.log("Erro ao criar a tabela 'vendas'.");
+    }
 
     // Realize outras operações de teste, se necessário
 

@@ -1,4 +1,4 @@
-import { connect } from "../_database";
+import connect from "../_database";
 import { BadRequestError } from "../helpers/api-erros";
 import { Sale } from "../types/Sale";
 
